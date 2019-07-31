@@ -1,0 +1,75 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+    background-color: $header-color;
+    color: white;
+    hr {
+        border: none;
+    }
+    h3 {
+        margin: auto 0;
+        padding-left: 15px;
+    }
+    #user-name {
+        padding: 5px 15px;
+        border-left: 1px solid rgba(117, 117, 117, 0.233);
+        margin: auto 0;
+    }
+}
+
+.dashboard {
+    grid-row: 2 / 3;
+    grid-column: 2 / 4;
+}
+
+.nav {
+    grid-row: 2 / 8;
+    grid-column: 1 / 2;
+    background-color: $nav-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+.traffic {
+    grid-row: 3 / 4;
+    grid-column: 2 / 4;
+}
+
+.daily-traffic {
+    grid-row: 4 / 5;
+    grid-column: 2 / 3;
+}
+
+.mobile-users {
+    grid-row: 4 / 5;
+    grid-column: 3 / 4;
+}
+
+.social-stats {
+    grid-row: 5 / 6;
+    grid-column: 2 / 4;
+}
+
+.new-members {
+    grid-row: 6 / 7;
+    grid-column: 2 / 3;
+}
+
+.recent-activity {
+    grid-row: 6 / 7;
+    grid-column: 3 / 4;
+}
+
+.messenger {
+    grid-row: 7 / 8;
+    grid-column: 2 / 3;
+}
+
+.settings {
+    grid-row: 7 / 8;
+    grid-column: 3 / 4;
+}

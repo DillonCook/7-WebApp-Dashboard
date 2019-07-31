@@ -1,0 +1,26 @@
+.icon {
+    width: 25px;
+    height: 25px;
+    fill: white;
+    opacity: .55;
+    transition: opacity .4s ease;
+}
+
+.bell-icon {
+    padding: 0 15px;
+    margin: auto 0;
+    transform-origin: 50% 50%;
+    transition: transform .5s ease;
+    &:hover {
+        opacity: 1;
+        animation: bell-swing .7s ease;
+    }
+}
+
+.nav-icon {
+    padding: 15px;
+    margin: 0 auto;
+    &:hover {
+        opacity: 1;
+    }
+}
