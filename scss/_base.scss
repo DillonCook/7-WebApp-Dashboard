@@ -1,17 +1,5 @@
-body {
-    display: grid;
-    grid-template-rows: 60px 60px 2fr 2fr 1fr 2fr 2fr;
-    grid-template-columns: 60px 1fr 1fr;
-    
-}
 
 
 
 
-@media (min-width: 768px) {
-    body {
-        display: grid;
-        grid-template-rows: 60px 60px 2fr 2fr 1fr 2fr 2fr;
-        grid-template-columns: 60px 1fr 1fr;
-    }
-}
+

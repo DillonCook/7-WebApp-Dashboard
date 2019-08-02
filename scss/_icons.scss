@@ -3,7 +3,8 @@
     height: 25px;
     fill: white;
     opacity: .55;
-    transition: opacity .4s ease;
+    transition: opacity .4s ease, border .25s linear;
+    cursor: pointer;
 }
 
 .bell-icon {
@@ -20,7 +21,47 @@
 .nav-icon {
     padding: 15px;
     margin: 0 auto;
+    border-radius: 3px;
     &:hover {
         opacity: 1;
+        border-bottom: 2px rgb(110, 255, 110) solid;
+        @include mid-break {
+          border-bottom: none;
+          border-left: 3px rgb(110, 255, 110) solid;
+        }
     }
 }
+
+
+// Close button borrowed from https://codepen.io/jermbo/pen/eztFu and slightly modified 
+.close-button {
+    width: 30px;
+    height: 30px;
+    box-shadow: 0px 10 10px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    background: $nav-color;    
+    position: relative;
+    &:hover {
+        cursor: pointer;
+    }
+  }
+  .close-button:before,
+  .close-button:after {
+    content: "";
+    width: 50%;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    top: 46%;
+    left: 23%;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease-out;
+  }
+  .close-button:after {
+    transform: rotate(45deg);
+    transition: all 0.3s ease-out;
+  }
+  .close-button:hover:before,
+  .close-button:hover:after {
+    transform: rotate(180deg);
+  }

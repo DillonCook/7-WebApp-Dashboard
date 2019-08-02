@@ -1,75 +1,207 @@
+body {
+    display: grid;
+    grid-auto-rows: minmax(60px, auto);
+    grid-template-areas:
+                    "head"
+                    "navigation"
+                    "dashboard"
+                    "traffic"
+                    "daily-traffic"
+                    "mobile-users"
+                    "social-stats"
+                    "new-members"
+                    "recent-activity"
+                    "messenger"
+                    "settings";
+    font-family: $primary-font;            
+}
+// div {  
+//     border: 1px solid red;
+// }
+
 header {
     display: flex;
     justify-content: space-between;
-    grid-row: 1 / 2;
-    grid-column: 1 / 4;
+    grid-area: head;
     background-color: $header-color;
     color: white;
+    font-size: 1.25em;
+    span {
+        font-weight: 100;
+    }
     hr {
         border: none;
     }
     h3 {
         margin: auto 0;
         padding-left: 15px;
+        font-weight: 400;
     }
     #user-name {
         padding: 5px 15px;
         border-left: 1px solid rgba(117, 117, 117, 0.233);
         margin: auto 0;
+        font-weight: lighter;
     }
 }
 
 .dashboard {
-    grid-row: 2 / 3;
-    grid-column: 2 / 4;
+    grid-area: dashboard;
+    background-color: rgb(233, 233, 233);
+    div {
+        display: flex;
+        justify-content: space-between;
+        h3 {
+            background-color: #fff;
+            padding: 20px;
+            margin: 0;
+            border-left: 1px solid lightgray;
+            border-right: 1px solid lightgray;
+            font-family: $secondary-font;
+            font-weight: lighter;
+        }
+        input {
+            border-radius: 5px;
+            width: 50%;
+            height: 40px;
+            margin: auto 0;
+            border: 1px solid lightgray;
+            background-image: url(/icons/search.svg);
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: 25px;
+            &::placeholder {
+                color: rgb(133, 131, 131);
+                text-indent: 10px;
+            }
+            &:focus {
+                border: 2px solid $nav-color;
+            }
+        }
+    }
+    .alert {
+        opacity: 1;
+        transition: opacity 1s ease;
+        display: flex;
+        width: 80%;
+        border-radius: 5px;
+        text-align: center;
+        background-color: $nav-color;
+        margin: 5px auto;
+        padding: auto 8px;
+        p{
+            margin: auto;
+            color: rgb(255, 255, 255);
+        }
+    }
 }
 
 .nav {
-    grid-row: 2 / 8;
-    grid-column: 1 / 2;
+    grid-area: navigation;
     background-color: $nav-color;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 
 .traffic {
-    grid-row: 3 / 4;
-    grid-column: 2 / 4;
+    grid-area: traffic;
 }
 
 .daily-traffic {
-    grid-row: 4 / 5;
-    grid-column: 2 / 3;
+    grid-area: daily-traffic;
 }
 
 .mobile-users {
-    grid-row: 4 / 5;
-    grid-column: 3 / 4;
+    grid-area: mobile-users;
 }
 
 .social-stats {
-    grid-row: 5 / 6;
-    grid-column: 2 / 4;
+    grid-area: social-stats;
 }
 
 .new-members {
-    grid-row: 6 / 7;
-    grid-column: 2 / 3;
+    grid-area: new-members;
 }
 
 .recent-activity {
-    grid-row: 6 / 7;
-    grid-column: 3 / 4;
+    grid-area: recent-activity;
 }
 
 .messenger {
-    grid-row: 7 / 8;
-    grid-column: 2 / 3;
+    grid-area: messenger;
 }
 
 .settings {
-    grid-row: 7 / 8;
-    grid-column: 3 / 4;
+    grid-area: settings;
+}
+
+@media (min-width: 768px) {
+
+    body {
+        display: grid;
+        grid-template-rows: 60px auto 2fr 2fr 1fr 2fr 2fr;
+        grid-template-columns: 60px 1fr 1fr;
+    }
+
+    header {
+        grid-row: 1 / 2;
+        grid-column: 1 / -1;
+    }
+
+    .dashboard {
+        grid-row: 2 / 3;
+        grid-column: 2 / 4;
+    }
+
+    .nav {
+        grid-row: 2 / -1;
+        grid-column: 1 / 2;
+        background-color: $nav-color;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+
+    .traffic {
+        grid-row: 3 / 4;
+        grid-column: 2 / 4;
+    }
+
+    .daily-traffic {
+        grid-row: 4 / 5;
+        grid-column: 2 / 3;
+    }
+
+    .mobile-users {
+        grid-row: 4 / 5;
+        grid-column: 3 / 4;
+    }
+
+    .social-stats {
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+    }
+
+    .new-members {
+        grid-row: 6 / 7;
+        grid-column: 2 / 3;
+    }
+
+    .recent-activity {
+        grid-row: 6 / 7;
+        grid-column: 3 / 4;
+    }
+
+    .messenger {
+        grid-row: 7 / 8;
+        grid-column: 2 / 3;
+    }
+
+    .settings {
+        grid-row: 7 / 8;
+        grid-column: 3 / 4;
+    }
 }
