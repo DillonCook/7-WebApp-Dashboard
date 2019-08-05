@@ -3,7 +3,7 @@
     height: 25px;
     fill: white;
     opacity: .55;
-    transition: opacity .4s ease, border .25s linear;
+    transition: opacity .4s ease;
     cursor: pointer;
 }
 
@@ -11,7 +11,7 @@
     padding: 0 15px;
     margin: auto 0;
     transform-origin: 50% 50%;
-    transition: transform .5s ease;
+    transition: transform .5s ease, opacity .4s ease;
     &:hover {
         opacity: 1;
         animation: bell-swing .7s ease;
@@ -24,11 +24,6 @@
     border-radius: 3px;
     &:hover {
         opacity: 1;
-        border-bottom: 2px rgb(110, 255, 110) solid;
-        @include mid-break {
-          border-bottom: none;
-          border-left: 3px rgb(110, 255, 110) solid;
-        }
     }
 }
 

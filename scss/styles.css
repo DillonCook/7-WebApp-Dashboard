@@ -372,13 +372,36 @@ template {
   }
 }
 
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.active {
+  background-color: rgba(0, 224, 0, 0.788);
+  color: white !important;
+}
+
+.active-icon {
+  opacity: 1 !important;
+  border-bottom: 2px solid rgba(0, 224, 0, 0.788);
+}
+
+@media (min-width: 768px) {
+  .active-icon {
+    border-bottom: none;
+    border-left: 2px solid rgba(0, 224, 0, 0.788);
+  }
+}
+
 .icon {
   width: 25px;
   height: 25px;
   fill: white;
   opacity: .55;
-  -webkit-transition: opacity .4s ease, border .25s linear;
-  transition: opacity .4s ease, border .25s linear;
+  -webkit-transition: opacity .4s ease;
+  transition: opacity .4s ease;
   cursor: pointer;
 }
 
@@ -387,10 +410,10 @@ template {
   margin: auto 0;
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
-  -webkit-transition: -webkit-transform .5s ease;
-  transition: -webkit-transform .5s ease;
-  transition: transform .5s ease;
-  transition: transform .5s ease, -webkit-transform .5s ease;
+  -webkit-transition: opacity .4s ease, -webkit-transform .5s ease;
+  transition: opacity .4s ease, -webkit-transform .5s ease;
+  transition: transform .5s ease, opacity .4s ease;
+  transition: transform .5s ease, opacity .4s ease, -webkit-transform .5s ease;
 }
 
 .bell-icon:hover {
@@ -407,14 +430,6 @@ template {
 
 .nav-icon:hover {
   opacity: 1;
-  border-bottom: 2px #6eff6e solid;
-}
-
-@media (min-width: 768px) {
-  .nav-icon:hover {
-    border-bottom: none;
-    border-left: 3px #6eff6e solid;
-  }
 }
 
 .close-button {
@@ -523,7 +538,6 @@ header #user-name {
   background-color: #fff;
   padding: 20px;
   margin: 0;
-  border-left: 1px solid lightgray;
   border-right: 1px solid lightgray;
   font-family: "Saira Stencil One", cursive;
   font-weight: lighter;
@@ -607,16 +621,81 @@ header #user-name {
   grid-area: traffic;
 }
 
+.traffic .flex-container {
+  padding: 0 10px 0 20px;
+  margin: auto 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.traffic li {
+  list-style-type: none;
+  font-size: .9em;
+  font-weight: 600;
+  color: gray;
+  padding: 2px 5px;
+  margin: 0 5px;
+  border-radius: 10px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.traffic li:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.traffic h3 {
+  line-height: 1;
+  font-weight: 400;
+  font-size: 1.2em;
+  color: #585858;
+}
+
+.traffic canvas {
+  width: 90% !important;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 .daily-traffic {
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   grid-area: daily-traffic;
+  border-top: 2px solid lightgray;
+}
+
+.daily-traffic h3 {
+  line-height: 1;
+  font-weight: 400;
+  font-size: 1.2em;
+  color: #585858;
+}
+
+.daily-traffic canvas {
+  width: 90% !important;
+  margin: 0 auto;
 }
 
 .mobile-users {
   -ms-grid-row: 6;
   -ms-grid-column: 1;
   grid-area: mobile-users;
+  border-top: 2px solid lightgray;
+}
+
+.mobile-users h3 {
+  line-height: 1;
+  font-weight: 400;
+  font-size: 1.2em;
+  color: #585858;
+}
+
+.mobile-users canvas {
+  width: 100% !important;
+  margin: 0 auto;
 }
 
 .social-stats {
@@ -653,8 +732,8 @@ header #user-name {
   body {
     display: -ms-grid;
     display: grid;
-    -ms-grid-rows: 60px auto 2fr 2fr 1fr 2fr 2fr;
-        grid-template-rows: 60px auto 2fr 2fr 1fr 2fr 2fr;
+    -ms-grid-rows: 60px auto auto 2fr 1fr 2fr 2fr;
+        grid-template-rows: 60px auto auto 2fr 1fr 2fr 2fr;
     -ms-grid-columns: 60px 1fr 1fr;
         grid-template-columns: 60px 1fr 1fr;
   }
@@ -704,6 +783,12 @@ header #user-name {
     -ms-grid-column: 2;
     -ms-grid-column-span: 1;
     grid-column: 2 / 3;
+    border-right: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    padding: 20px;
+  }
+  .daily-traffic canvas {
+    width: 100% !important;
   }
   .mobile-users {
     -ms-grid-row: 4;
@@ -712,6 +797,11 @@ header #user-name {
     -ms-grid-column: 3;
     -ms-grid-column-span: 1;
     grid-column: 3 / 4;
+    border-bottom: 2px solid lightgray;
+    padding: 20px;
+  }
+  .mobile-users canvas {
+    width: 100% !important;
   }
   .social-stats {
     -ms-grid-row: 5;
