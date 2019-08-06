@@ -172,6 +172,10 @@ function monthlyChart() {
     trafficChart.update();
 }
 
-// ---------------------------
+// --------------------------- Autocomplete ------------------
 
+var options = {
+	data: ["Victoria Chambers", "Dale Byrd", "Dillon Cook", "Dan Oliver", "Dawn wood"]
+};
 
+$("#names").easyAutocomplete(options);

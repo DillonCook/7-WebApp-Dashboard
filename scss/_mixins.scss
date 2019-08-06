@@ -3,3 +3,19 @@
         @content;
     }
 }
+
+%header3-styles {
+    h3 {
+        margin-left: 20px;
+        line-height: 1;
+        font-weight: 400;
+        font-size: 1em;
+        color: rgb(88, 88, 88);
+    }
+}
+
+%flex-container-row {
+    display: flex;
+    flex-direction: row;
+}
+
