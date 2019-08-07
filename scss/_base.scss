@@ -32,3 +32,24 @@ h5 {
     margin: 0;
 }
 
+// Bell Icon Notification
+.bell-notification {
+    display: none;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    top: 6.4%;
+    right: 5%;
+    width: 35%;
+    height: auto;
+    background-color: rgba(255, 255, 255, .95);
+    color: black;
+    position: absolute;
+    z-index: 3;
+    a {
+        font-size: .7em;
+    }
+    span {
+        font-weight: 200;
+    }
+}

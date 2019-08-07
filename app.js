@@ -1,3 +1,5 @@
+
+// Variables
 const alert = document.querySelector('.alert');
 const hourly = document.querySelector('.hourly');
 const daily = document.querySelector('.daily');
@@ -7,6 +9,12 @@ const ul = document.querySelector('ul');
 const li = document.querySelectorAll('ul>li');
 const nav = document.querySelector('nav');
 const navIcon = document.querySelectorAll('nav>.nav-icon');
+const form = document.querySelector("form");
+const send = document.querySelector('.send');
+const messageNames = document.querySelector('#names');
+const messageUsers = document.querySelector('#message-user');
+const bellIcon = document.querySelector('.bell-icon');
+const bellModal = document.querySelector('.bell-notification');
 
 
 const hourlyTraffic = [109, 156, 116, 154, 144, 160, 210, 99, 171];
@@ -179,3 +187,57 @@ var options = {
 };
 
 $("#names").easyAutocomplete(options);
+
+// ---------------- Form Validation ----------------------------
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    options.data.forEach(element => {
+
+        if (messageNames.value === element && messageUsers.value !== "") {
+            send.style.backgroundColor = "rgb(0, 224, 0)";
+            send.style.color = "white";
+            send.innerHTML = "SUCCESS";
+            p.innerHTML = "Your message went through!";
+            modal.style.display = "block";
+            setTimeout(function(){
+                send.style.backgroundColor = "rgb(36, 113, 185)";
+                send.style.color = "white";
+                send.innerHTML = "SEND";
+                modal.style.display = "none";
+            }, 1500);
+        } else if (messageUsers.value == 0) {
+            p.innerHTML = "Enter a user and a message!";
+            modal.style.display = "block";
+        } else if (messageNames.value == 0) {
+            p.innerHTML = "Enter a user and a message!";
+            modal.style.display = "block";
+        }
+    });    
+});
+
+// ----------------------------- MODAL ---------------------------
+var modal = document.querySelector(".modal");
+let p = document.querySelector('.modal-message');
+var span = document.querySelector(".close");
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Bell Icon alert
+
+bellIcon.addEventListener('click', () => {
+    bellModal.style.display = "block";
+    window.onclick = function(e) {
+        if (e.target !== bellIcon) {
+            bellModal.style.display = "none";
+        }
+    }
+});
