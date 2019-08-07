@@ -81,9 +81,10 @@ header {
             background-repeat: no-repeat;
             background-position: right;
             background-size: 25px;
+            text-indent: 10px;
             &::placeholder {
                 color: rgb(133, 131, 131);
-                text-indent: 10px;
+                
             }
             &:focus {
                 border: 2px solid $nav-color;

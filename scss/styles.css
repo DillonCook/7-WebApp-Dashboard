@@ -654,26 +654,23 @@ header .profile-pic:hover {
   background-repeat: no-repeat;
   background-position: right;
   background-size: 25px;
+  text-indent: 10px;
 }
 
 .dashboard div input::-webkit-input-placeholder {
   color: #858383;
-  text-indent: 10px;
 }
 
 .dashboard div input:-ms-input-placeholder {
   color: #858383;
-  text-indent: 10px;
 }
 
 .dashboard div input::-ms-input-placeholder {
   color: #858383;
-  text-indent: 10px;
 }
 
 .dashboard div input::placeholder {
   color: #858383;
-  text-indent: 10px;
 }
 
 .dashboard div input:focus {

@@ -15,6 +15,7 @@ const messageNames = document.querySelector('#names');
 const messageUsers = document.querySelector('#message-user');
 const bellIcon = document.querySelector('.bell-icon');
 const bellModal = document.querySelector('.bell-notification');
+const save = document.querySelector('.save');
 
 
 const hourlyTraffic = [109, 156, 116, 154, 144, 160, 210, 99, 171];
@@ -231,7 +232,7 @@ window.onclick = function(event) {
   }
 }
 
-// Bell Icon alert
+// Bell Icon modal alert
 
 bellIcon.addEventListener('click', () => {
     bellModal.style.display = "block";
@@ -241,3 +242,49 @@ bellIcon.addEventListener('click', () => {
         }
     }
 });
+
+// ---------------- Local Storage -------------------------
+
+// Variables
+const emailNotifications = document.querySelector('.email-notifications');
+const publicProfile = document.querySelector('.public-profile');
+const timeZone = document.querySelector('#timezone');
+const saveButton = document.querySelector('.save');
+const cancelButton = document.querySelector('.cancel');
+
+const settingsAction = function() {
+    localStorage.setItem('emailNotifications', emailNotifications.checked);
+    localStorage.setItem('publicProfile', publicProfile.checked);
+    localStorage.setItem('timeZone', timeZone.value);
+}
+
+let storedEmail = localStorage.getItem('emailNotifications', emailNotifications.checked);
+let storedPublicProfile = localStorage.getItem('publicProfile', publicProfile.checked);
+let storedTimeZone = localStorage.getItem('timeZone', timeZone.value);
+
+// On-load reader for local storage
+document.addEventListener('DOMContentLoaded', () => {
+    emailNotifications.checked = (storedEmail === 'true');
+    publicProfile.checked = (storedPublicProfile === 'true');
+    timeZone.value = storedTimeZone;
+});
+
+// Save button actions
+saveButton.addEventListener('click', (e)=> {
+    e.preventDefault();
+    settingsAction();
+    p.innerHTML = "Settings Saved!";
+    modal.style.display = "block";
+});
+
+// Cancel button actions
+cancelButton.addEventListener('click', (e)=> {
+    e.preventDefault();
+    emailNotifications.checked = false;
+    publicProfile.checked = false;
+    settingsAction();
+    p.innerHTML = "Settings Removed!";
+    modal.style.display = "block";
+});
+
+
