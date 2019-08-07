@@ -249,6 +249,7 @@ bellIcon.addEventListener('click', () => {
 const emailNotifications = document.querySelector('.email-notifications');
 const publicProfile = document.querySelector('.public-profile');
 const timeZone = document.querySelector('#timezone');
+const defaultOption = document.querySelector('.default-option');
 const saveButton = document.querySelector('.save');
 const cancelButton = document.querySelector('.cancel');
 
@@ -258,15 +259,15 @@ const settingsAction = function() {
     localStorage.setItem('timeZone', timeZone.value);
 }
 
-let storedEmail = localStorage.getItem('emailNotifications', emailNotifications.checked);
-let storedPublicProfile = localStorage.getItem('publicProfile', publicProfile.checked);
-let storedTimeZone = localStorage.getItem('timeZone', timeZone.value);
+let storageEmail = localStorage.getItem('emailNotifications', emailNotifications.checked);
+let storagePublicProfile = localStorage.getItem('publicProfile', publicProfile.checked);
+let storageTimeZone = localStorage.getItem('timeZone', timeZone.value);
 
 // On-load reader for local storage
 document.addEventListener('DOMContentLoaded', () => {
-    emailNotifications.checked = (storedEmail === 'true');
-    publicProfile.checked = (storedPublicProfile === 'true');
-    timeZone.value = storedTimeZone;
+    emailNotifications.checked = (storageEmail === 'true');
+    publicProfile.checked = (storagePublicProfile === 'true');
+    timeZone.value = storageTimeZone;
 });
 
 // Save button actions
@@ -282,6 +283,7 @@ cancelButton.addEventListener('click', (e)=> {
     e.preventDefault();
     emailNotifications.checked = false;
     publicProfile.checked = false;
+    timeZone.value = defaultOption;
     settingsAction();
     p.innerHTML = "Settings Removed!";
     modal.style.display = "block";

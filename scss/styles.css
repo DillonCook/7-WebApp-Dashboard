@@ -1184,6 +1184,10 @@ header .profile-pic:hover {
     -ms-grid-column-span: 2;
     grid-column: 2 / 4;
   }
+  .dashboard input {
+    width: 20% !important;
+    margin-right: 100px !important;
+  }
   .nav {
     grid-row: 2 / -1;
     -ms-grid-column: 1;

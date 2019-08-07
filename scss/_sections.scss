@@ -485,6 +485,10 @@ header {
     .dashboard {
         grid-row: 2 / 3;
         grid-column: 2 / 4;
+        input {
+            width: 20% !important;
+            margin-right: 100px !important;
+        }
     }
 
     .nav {
