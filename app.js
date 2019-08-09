@@ -16,6 +16,7 @@ const messageUsers = document.querySelector('#message-user');
 const bellIcon = document.querySelector('.bell-icon');
 const bellModal = document.querySelector('.bell-notification');
 const save = document.querySelector('.save');
+const marker = document.querySelector('.marker');
 
 
 const hourlyTraffic = [109, 156, 116, 154, 144, 160, 210, 99, 171];
@@ -235,6 +236,7 @@ window.onclick = function(event) {
 // Bell Icon modal alert
 
 bellIcon.addEventListener('click', () => {
+    marker.style.display = "none";
     bellModal.style.display = "block";
     window.onclick = function(e) {
         if (e.target !== bellIcon) {
